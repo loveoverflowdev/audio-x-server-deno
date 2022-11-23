@@ -1,46 +1,34 @@
-import { ChapterEntity } from "./chapter_entity.ts";
 import { Entity } from "./common/entity.ts";
 
 export {
     NovelEntity,
-    NovelTag,
 }
 
 class NovelEntity extends Entity {
-    author: string;
-    introduction: string;
-    tag: NovelTag;
-    chapterList: ChapterEntity[];
+    private readonly id: string;
+    private readonly author: string;
+    // TODO: add image URl
+    private readonly introduction: string;
+    private readonly tagIdList: string[];
 
     constructor({
-        author, introduction, tag, chapterList,
+        id, author, introduction, tagIdList,
     }: {
-        author: string, introduction: string, tag: NovelTag, chapterList: ChapterEntity[],
+        id: string, author: string, introduction: string, tagIdList: string[],
     }) {
         super();
+        this.id = id;
         this.author = author;
         this.introduction = introduction;
-        this.tag = tag;
-        this.chapterList = chapterList;
+        this.tagIdList = tagIdList;
     }
 
     override toRecord(): Record<string,unknown> {
         return {
+            id: this.id,
             author: this.author,
             introduction: this.introduction,
-            tag: this.tag,
-            chapterList: this.chapterList,
+            tagIdList: this.tagIdList,
         };
     }
-}
-
-enum NovelTag {
-    MartialArt,
-    Mystery,
-    Romance,
-    Adult,
-    Xuanhuan,
-    Fantasy,
-    School,
-    Tragedy,
 }

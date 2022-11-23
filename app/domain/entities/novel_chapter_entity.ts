@@ -1,20 +1,22 @@
 import { Entity } from "./common/entity.ts";
 
 export {
-    ChapterEntity,
+    NovelChapterEntity,
 }
 
-class ChapterEntity extends Entity {
-    index: number;
-    name: string;
-    source: string;
+class NovelChapterEntity extends Entity {
+    private readonly novelId: string;
+    private readonly index: number;
+    private readonly name: string;
+    private readonly source: string;
 
     constructor({
-        index, name, source,
+        novelId, index, name, source,
     }: {
-        index: number, name: string, source: string,
+        novelId: string, index: number, name: string, source: string,
     }) {
         super();
+        this.novelId = novelId;
         this.index = index;
         this.name = name;
         this.source = source;

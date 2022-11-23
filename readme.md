@@ -1,18 +1,20 @@
 **AUDIO APP** 
 
-1. Get Novel List
+1. Get Novel List By Name And Tag
 ```ts
-GET: api/app/novel-list/?{name: string}&{tag[]: number[]}
+GET: api/app/novel-list/?{name: string}&{tag_index: number[]}
 ```
 
-2. Get Novel
+2. Get Novel By Id
 ```ts
 GET: api/app/novel/{id: string}
 ```
-3. Get Novel Chapter
+
+3.  Get Novel Chapter List By Novel Id
 ```ts
-GET: api/app/novel-chapter/{id: string}
+GET: api/app/novel-chapter-list/{novel_id: string}
 ```
+
 4. Get Novel Tag List
 ```ts
 GET: api/app/novel-tag-list/{index}
@@ -32,12 +34,10 @@ POST: api/admin/novel
 
 body:
 {
-	id: string;
 	author: string;
 	introduction: string;
 	tag: number[];
 	imageUrl: string;
-	chapterList: Chapter[];
 }
 ```
 6. Put Novel
@@ -51,7 +51,6 @@ body:
 	introduction: string;
 	tag: number[];
 	imageUrl: string;
-	chapterList: Chapter[];
 }
 ```
 
@@ -61,7 +60,6 @@ POST: api/admin/novel-chapter
 
 body:
 {
-	id: string;
 	novel_id: string;
 	index: number;
 	name: string;
@@ -91,11 +89,11 @@ Novel {
 	introduction: string;
 	tag: number[];
 	imageUrl: string;
-	chapterList: Chapter[];
 }
 
 NovelChapter {
 	id: string;
+	novel_id: string;
 	index: number;
 	name: string;
 	source: string;
