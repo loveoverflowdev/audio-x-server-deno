@@ -30,8 +30,8 @@ class MongoNovelService extends NovelService {
     
     // TODO: Filter by name & tags
     override async getNovelList({ name, tagIdList } : { 
-        name: string, 
-        tagIdList: number[] 
+        name: string | undefined | null, 
+        tagIdList: string[] 
     }) : Promise<Either<NovelEntity[], Error>> {
 
         const schemaList = await this.novelCollection.find().toArray();
@@ -55,11 +55,12 @@ class MongoNovelService extends NovelService {
         
         const author: string | undefined = record['author']?.toString();
         const introduction: string | undefined = record['introduction']?.toString();
-        const tagIdListString = record['tagIdList']?.toString()
-        const tagIdList = tagIdListString?.split(';') ?? [];
+        const tagIdListString: string | undefined = record['tagIdList']?.toString();
+        const tagIdList: string[] = tagIdListString?.split(';') ?? [];
+        const imageUrl: string | undefined = record['imageUrl']?.toString();
         
-        if (author == undefined || introduction == undefined) {
-            return Right(Error('Missing author or introduction', {
+        if (author == undefined || introduction == undefined || imageUrl == undefined) {
+            return Right(Error('Missing author or introduction, imageUrl', {
                 cause: 400,
             }));
         }
@@ -75,6 +76,7 @@ class MongoNovelService extends NovelService {
             author: author,
             introduction: introduction,
             tagIdList: tagIdList,
+            imageUrl: imageUrl,
         };
         const objectId = await this
             .novelCollection
@@ -88,8 +90,8 @@ class MongoNovelService extends NovelService {
         const id: string | undefined = record['id']?.toString();
         const author: string | undefined = record['author']?.toString();
         const introduction: string | undefined = record['introduction']?.toString();
-        const tagIdListString = record['tagIdList']?.toString()
-        const tagIdList = tagIdListString?.split(';');
+        const tagIdListString: string | undefined = record['tagIdList']?.toString()
+        const tagIdList: string[] = tagIdListString?.split(';') ?? [];
         
         if (id == undefined) {
             return Right(Error('Missing novel id', {

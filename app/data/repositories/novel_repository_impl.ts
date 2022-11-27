@@ -14,20 +14,27 @@ class NovelRepositoryImpl implements NovelRepository {
         this.novelService = novelService;
     }
 
-    getNovelList(): Promise<Either<NovelEntity[],Error>> {
+    getNovelList({name, tagIdList}: {
+        name: string | undefined | null, 
+        tagIdList: string[] | undefined,
+    }): Promise<Either<NovelEntity[], Error>> {
+        return this.novelService.getNovelList({
+            name: name, 
+            tagIdList: tagIdList,
+        });
+    }
+
+    getNovel({ id }: { id: string; }): Promise<Either<NovelEntity[], Error>> {
         throw new Error("Method not implemented.");
     }
 
-    getNovel({ id }: { id: string; }): Promise<Either<NovelEntity[],Error>> {
-        throw new Error("Method not implemented.");
-    }
-
-    postNovel({ record }: { record: Record<string,unknown>; }): Promise<Either<string,Error>> {
+    postNovel({ record }: { record: Record<string,unknown>; }): Promise<Either<string, Error>> {
         return this.novelService.postNovel({
             record: record,
         });
     }
 
+    // TODO: 
     putNovel({ record }: { record: Record<string,unknown>; }): Promise<Either<string,Error>> {
         throw new Error("Method not implemented.");
     }

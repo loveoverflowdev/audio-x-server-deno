@@ -9,8 +9,10 @@ interface NovelRepository {
     getDummyNovelList()
         : Promise<Either<NovelEntity[], Error>>;
     
-    getNovelList()
-        : Promise<Either<NovelEntity[], Error>>;
+    getNovelList({name, tagIdList}: {
+        name: string | undefined | null, 
+        tagIdList: string[] | undefined,
+    }): Promise<Either<NovelEntity[], Error>>;
 
     getNovel({id} : {id: string})
         : Promise<Either<NovelEntity[], Error>>;

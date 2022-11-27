@@ -1,8 +1,30 @@
 import { Database, MongoClient } 
     from "../../../core/dependencies/mongo.ts";
+import { NovelChapterService } 
+    from "../../../domain/repositories/services/novel_chapter_service.ts";
+import { NovelService } 
+    from "../../../domain/repositories/services/novel_service.ts";
+import { NovelTagService } 
+    from "../../../domain/repositories/services/novel_tag_service.ts";
+import { NovelChapterSchema } 
+    from "./schemas/novel_chapter_schema.ts";
+import { NovelSchema } 
+    from "./schemas/novel_schema.ts";
+import { NovelTagScheme } 
+    from "./schemas/novel_tag_schema.ts";
+import { MongoNovelChapterService } 
+    from "./services/mongo_novel_chapter_service.ts";
+import { MongoNovelService } 
+    from "./services/mongo_novel_service.ts";
+import { MongoNovelTagService } 
+    from "./services/mongo_novel_tag_service.ts";
 
 export {
     buildAudioDatabase,
+    
+    buildNovelService,
+    buildNovelTagService,
+    buildNovelChapterService,
 };
 
 async function buildAudioDatabase(): Promise<Database> {
@@ -11,3 +33,29 @@ async function buildAudioDatabase(): Promise<Database> {
     const db = client.database("audio_x");
     return db;
 } 
+
+function buildNovelService(database: Database): NovelService {
+    const novelCollection = database
+        .collection<NovelSchema>("novel");
+    const novelTagService = buildNovelTagService(database);
+    return new MongoNovelService({
+        novelCollection: novelCollection,
+        novelTagService: novelTagService,
+    });
+}
+
+function buildNovelChapterService(database: Database): NovelChapterService {
+    const novelChapterCollection = database
+        .collection<NovelChapterSchema>("novel_chapter");
+    return new MongoNovelChapterService({
+        novelChapterCollection: novelChapterCollection,
+    });
+}
+
+function buildNovelTagService(database: Database): NovelTagService {
+    const novelTagCollection = database
+        .collection<NovelTagScheme>("novel_tag");
+    return new MongoNovelTagService({
+        novelTagCollection: novelTagCollection,
+    });
+}

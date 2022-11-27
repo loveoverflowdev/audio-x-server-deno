@@ -1,18 +1,21 @@
-import { Context } from "../../core/dependencies/oak.ts";
-import { ApiResponse } from "../../core/response/api_response.ts";
-import { GetDummyNovelListUseCase } 
-    from "../../domain/use_cases/get_dummy_novel_lise_use_case.ts";
-import { PostNovelParameter, PostNovelUseCase } from "../../domain/use_cases/novel/post_novel_use_case.ts";
+import { Context } 
+    from "../../core/dependencies/oak.ts";
+import { ApiResponse } 
+    from "../../core/response/api_response.ts";
+import { GetNovelListParameter, GetNovelListUseCase } 
+    from "../../domain/use_cases/novel/get_novel_list_use_case.ts";
+import { PostNovelParameter, PostNovelUseCase } 
+    from "../../domain/use_cases/novel/post_novel_use_case.ts";
 
 export {
     NovelController,
 };
 
 class NovelController {
-    private readonly getDummyNovelListUseCase: GetDummyNovelListUseCase;
+    private readonly getNovelListUseCase: GetNovelListUseCase;
     private readonly postNovelUseCase: PostNovelUseCase;
 
-    async postNovelList(context: Context): Promise<void> {
+    async postNovel(context: Context): Promise<void> {
         const formBody = context.request.body({ type: 'form-data' })
         const formData = await formBody.value.read();
     
@@ -33,7 +36,7 @@ class NovelController {
             },
             right: (r) => {
                 const data: ApiResponse = {
-                    meta: {error: r},
+                    meta: {error: r.message},
                     data: null,
                 };
                 context.response.status = typeof r.cause === 'number' 
@@ -44,10 +47,18 @@ class NovelController {
         });
     }
 
-    async getNovelList(context: Context): Promise<void> {
+    async getNovelList(context: Context, { name, tagIdListString } : {
+        name: string | null,
+        tagIdListString: string | null,
+    }): Promise<void> {
+        const tagIdList = tagIdListString?.split(",");
         const data = await this
-            .getDummyNovelListUseCase
-            .invoke();
+            .getNovelListUseCase
+            .invoke(new GetNovelListParameter({
+                name: name,
+                tagIdList: tagIdList,
+            }),
+        );
         
         data.match({
             left: (l) => {
@@ -60,7 +71,7 @@ class NovelController {
             },
             right: (r) => {
                 const data: ApiResponse = {
-                    meta: {error: r},
+                    meta: {error: r.message},
                     data: null,
                 };
                 context.response.status = typeof r.cause === 'number' 
@@ -72,12 +83,12 @@ class NovelController {
     }
 
     constructor({
-        getDummyNovelListUseCase, postNovelUseCase,
+        getNovelListUseCase, postNovelUseCase,
     } : {
-        getDummyNovelListUseCase: GetDummyNovelListUseCase,
+        getNovelListUseCase: GetNovelListUseCase,
         postNovelUseCase: PostNovelUseCase,
     }) {
-        this.getDummyNovelListUseCase = getDummyNovelListUseCase;
+        this.getNovelListUseCase = getNovelListUseCase;
         this.postNovelUseCase = postNovelUseCase;
     }
 }

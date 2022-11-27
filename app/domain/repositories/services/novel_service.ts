@@ -6,8 +6,10 @@ export {
 };
 
 abstract class NovelService {
-    abstract getNovelList({name, tagIdList}: {name: string, tagIdList: number[]}) 
-        : Promise<Either<NovelEntity[], Error>>;
+    abstract getNovelList({name, tagIdList}: {
+        name: string | undefined | null, 
+        tagIdList: string[] | undefined,
+    }) : Promise<Either<NovelEntity[], Error>>;
 
     abstract getNovel({id} : {id: string})
         : Promise<Either<NovelEntity, Error>>;

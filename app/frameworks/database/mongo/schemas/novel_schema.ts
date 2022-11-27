@@ -13,6 +13,7 @@ interface NovelSchema {
     readonly author: string;
     readonly introduction: string;
     readonly tagIdList: string[];
+    readonly imageUrl: string;
 }
 
 function NovelEntityFromSchema(schema: NovelSchema) : NovelEntity {
@@ -21,5 +22,6 @@ function NovelEntityFromSchema(schema: NovelSchema) : NovelEntity {
         introduction: schema.introduction,
         author: schema.author,
         tagIdList: schema.tagIdList,
+        imageUrl: schema.imageUrl,
     });
 }

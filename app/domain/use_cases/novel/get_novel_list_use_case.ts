@@ -3,8 +3,22 @@ import { NovelEntity } from "../../entities/novel_entity.ts";
 import { NovelRepository } from "../../repositories/novel_repository.ts";
 import { UseCase } from "../common/use_case.ts";
 
-class GetNovelListParameter {
+export {
+    GetNovelListUseCase,
+    GetNovelListParameter,
+}
 
+class GetNovelListParameter {
+    name: string | undefined | null;
+    tagIdList: string[] | undefined;
+
+    constructor({name, tagIdList} : {
+        name: string | undefined | null,
+        tagIdList: string[] | undefined,
+    }) {
+        this.name = name;
+        this.tagIdList = tagIdList;
+    }
 }
 
 class GetNovelListUseCase implements UseCase<GetNovelListParameter, NovelEntity[]> {
@@ -15,6 +29,9 @@ class GetNovelListUseCase implements UseCase<GetNovelListParameter, NovelEntity[
     }
 
     invoke(params: GetNovelListParameter): Promise<Either<NovelEntity[],Error>> {
-        return this.novelRepository.getNovelList();
+        return this.novelRepository.getNovelList({
+            name: params.name,
+            tagIdList: params.tagIdList,
+        });
     }
 }

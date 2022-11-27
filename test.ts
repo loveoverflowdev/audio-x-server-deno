@@ -17,5 +17,11 @@
 const setOption: Record<string, unknown> = {};
 setOption['author'] = 'adads';
 setOption['autho'] = undefined;
-const a: unknown = 123;
-console.log(typeof a === 'number');
+setOption['number'] = 'adasd';
+
+// const a: unknown = 123;
+// console.log(typeof a === 'number');
+
+console.log(setOption['number']);
+
+// deno run --allow-net --allow-env --allow-read index.ts
