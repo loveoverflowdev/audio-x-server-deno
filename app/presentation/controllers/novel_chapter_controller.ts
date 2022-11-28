@@ -38,7 +38,7 @@ class NovelChapterController extends Controller {
         this.matchResponse(context, data, {
             onSuccess: (left) => {
                 return {
-                    id: left,
+                    result: left,
                 }
             }
         });
@@ -64,7 +64,7 @@ class NovelChapterController extends Controller {
         this.matchResponse(context, data, {
             onSuccess: (left) => {
                 return {
-                    id: left,
+                    result: left,
                 }
             }
         });
@@ -81,9 +81,7 @@ class NovelChapterController extends Controller {
         
         this.matchResponse(context, data, {
             onSuccess: (left) => {
-                return {
-                    id: left,
-                }
+                return left.map(e => e.toRecord());
             }
         });
     }

@@ -5,10 +5,7 @@ export {
     type NovelRepository,
 }
 
-interface NovelRepository {
-    getDummyNovelList()
-        : Promise<Either<NovelEntity[], Error>>;
-    
+interface NovelRepository {    
     getNovelList({name, tagIdList}: {
         name: string | undefined | null, 
         tagIdList: string[] | undefined,

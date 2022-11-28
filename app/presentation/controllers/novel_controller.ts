@@ -55,7 +55,7 @@ class NovelController extends Controller {
         
         this.matchResponse(context, data, {
             onSuccess: (left) => {
-                return left.map(value => value.toRecord());
+                return left.map(value => value.toShortTypeRecord());
             }
         })
     }

@@ -41,4 +41,13 @@ class NovelEntity extends Entity {
             chapterList: this.chapterList.map(e => e.toRecord()),
         };
     }
+
+    toShortTypeRecord(): Record<string,unknown> {
+        return {
+            id: this.id,
+            author: this.author,
+            introduction: this.introduction,
+            tagIdList: this.tagIdList,
+        };
+    }
 }

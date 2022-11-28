@@ -38,8 +38,4 @@ class NovelRepositoryImpl implements NovelRepository {
     putNovel({ record }: { record: Record<string,unknown>; }): Promise<Either<string,Error>> {
         throw new Error("Method not implemented.");
     }
-    
-    getDummyNovelList(): Promise<Either<NovelEntity[], Error>> {
-        return Promise.resolve(Left([]));
-    }
 }
