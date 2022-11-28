@@ -45,10 +45,10 @@ function buildNovelService(database: Database): NovelService {
 }
 
 function buildNovelChapterService(database: Database): NovelChapterService {
-    const novelChapterCollection = database
-        .collection<NovelChapterSchema>("novel_chapter");
+    const novelCollection = database
+        .collection<NovelSchema>("novel");
     return new MongoNovelChapterService({
-        novelChapterCollection: novelChapterCollection,
+        novelCollection: novelCollection,
     });
 }
 

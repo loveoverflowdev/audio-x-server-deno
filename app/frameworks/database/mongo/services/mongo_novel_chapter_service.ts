@@ -6,57 +6,68 @@ import { NovelChapterEntityFromSchema, NovelChapterSchema }
     from "../schemas/novel_chapter_schema.ts";
 import { NovelChapterEntity } 
     from "../../../../domain/entities/novel_chapter_entity.ts";
-import { Collection, InsertDocument, ObjectId } 
+import { Collection, ObjectId } 
     from "../../../../core/dependencies/mongo.ts";
+import { NovelSchema } 
+    from "../schemas/novel_schema.ts";
+import { ErrorFromAny } from "../../../../core/response/error_from_any.ts";
 
 export {
     MongoNovelChapterService,
 }
 
 class MongoNovelChapterService implements NovelChapterService {
-    private readonly novelChapterCollection: Collection<NovelChapterSchema>;
+    private readonly novelCollection: Collection<NovelSchema>;
 
-    constructor({ novelChapterCollection} : {
-        novelChapterCollection: Collection<NovelChapterSchema>,
+    constructor({ novelCollection} : {
+        novelCollection: Collection<NovelSchema>,
     }) {
-        this.novelChapterCollection = novelChapterCollection;
+        this.novelCollection = novelCollection;
     }
 
     async getNovelChapterList({ novelId }: { novelId: string | undefined })
     : Promise<Either<NovelChapterEntity[], Error>> {
-        const schemaList = await this
-            .novelChapterCollection
-            .find({novelId: novelId})
-            .toArray();
-        return Left(schemaList.map(e => NovelChapterEntityFromSchema(e)));
+        try {
+            const novelSchema = await this
+            .novelCollection
+            .findOne({_id: new ObjectId(novelId)});
+        return Left(novelSchema
+            ?.chapterList
+                .map(e => NovelChapterEntityFromSchema(e)) 
+                ?? [],
+            );
+        } catch (e) {
+            return Right(ErrorFromAny(e));
+        }
     }
 
     async postNovelChapter({ record }: { record: Record<string, unknown> })
     : Promise<Either<string, Error>> {
         
         const novelId: string | undefined = record['novelId']?.toString();
-        const index: number | undefined = parseInt(record['index']?.toString() ?? '0')
         const name: string | undefined = record['name']?.toString();
         const source: string | undefined = record['source']?.toString();
-        console.log(record);
-        console.log(novelId, index, name, source);
-        if (novelId == undefined || index == undefined 
-            || source == undefined) {
-            return Right(Error('Missing novelId or index, source', {
+        if (novelId == undefined ||  source == undefined) {
+            return Right(Error('Missing novelId or source', {
                 cause: 400,
             }));
         }
 
-        const document: InsertDocument<NovelChapterSchema> = {
-            novelId: novelId,
-            index: index,
+        const novelChapterSchema: NovelChapterSchema = {
             name: name ?? '',
             source: source,
         };
-        const objectId = await this
-            .novelChapterCollection
-            .insertOne(document);
-        return Left(objectId.toString());
+
+        const result = await this
+            .novelCollection
+            .updateOne({
+                _id: new ObjectId(novelId),
+            }, {
+                $push: {chapterList: {
+                    $each: [novelChapterSchema],
+                }}
+            });
+        return Left(`upsertedId: ${result.upsertedId}; modifiedCount: ${result.modifiedCount}; matchedCount: ${result.matchedCount}`);
     }
 
     async putNovelChapter({ record }: { record: Record<string,unknown>; })

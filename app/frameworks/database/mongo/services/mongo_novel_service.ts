@@ -77,11 +77,12 @@ class MongoNovelService extends NovelService {
             introduction: introduction,
             tagIdList: tagIdList,
             imageUrl: imageUrl,
+            chapterList: [],
         };
-        const objectId = await this
+        const result = await this
             .novelCollection
             .insertOne(document);
-        return Left(objectId.toString());
+        return Left(result.toString());
     }
     
     override async putNovel({ record }: { record: Record<string,unknown> })

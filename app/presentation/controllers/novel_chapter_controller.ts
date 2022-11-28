@@ -5,44 +5,38 @@ import { GetNovelChapterListUseCase, GetNovelChapterListParamter }
     from "../../domain/use_cases/novel_chapter/get_novel_chapter_list_use_case.ts";
 import { PostNovelChapterParameter, PostNovelChapterUseCase } 
     from "../../domain/use_cases/novel_chapter/post_novel_chapter_use_case.ts";
+import { Controller } from "./base/controller.ts";
 
 export {
     NovelChapterController,
 }
 
-class NovelChapterController {
+class NovelChapterController extends Controller {
     private readonly getNovelChapterListUseCase: GetNovelChapterListUseCase;
     private readonly postNovelChapterUseCase: PostNovelChapterUseCase;
 
     async postNovelChapter(context: Context) {
-        const formBody = context.request.body({ type: 'form-data' })
-        const formData = await formBody.value.read();
+        const record = await this.getRequestBodyRecord(context);
+        if (record instanceof Error) {
+            const data: ApiResponse = {
+                meta: {error: record.message},
+                data: null,
+            };
+            context.response.body = data;
+            return;
+        }
+
         const data = await this
             .postNovelChapterUseCase
             .invoke(new PostNovelChapterParameter({
-                record: formData.fields,
+                record: record,
             }));
         
-        data.match({
-            left: (l) => {
-                const data: ApiResponse = {
-                    meta: {error: null},
-                    data: {
-                        id: l,
-                    },
-                };
-                context.response.status = 200;
-                context.response.body = data;
-            },
-            right: (r) => {
-                const data: ApiResponse = {
-                    meta: {error: r.message},
-                    data: null,
-                };
-                context.response.status = typeof r.cause === 'number' 
-                    ? r.cause 
-                    : 404;
-                context.response.body = data;
+        this.matchResponse(context, data, {
+            onSuccess: (left) => {
+                return {
+                    id: left,
+                }
             }
         });
     }
@@ -56,26 +50,11 @@ class NovelChapterController {
                 novelId: novelId,
             }));
         
-        data.match({
-            left: (l) => {
-                const data: ApiResponse = {
-                    meta: {error: null},
-                    data: {
-                        id: l,
-                    },
-                };
-                context.response.status = 200;
-                context.response.body = data;
-            },
-            right: (r) => {
-                const data: ApiResponse = {
-                    meta: {error: r.message},
-                    data: null,
-                };
-                context.response.status = typeof r.cause === 'number' 
-                    ? r.cause 
-                    : 404;
-                context.response.body = data;
+        this.matchResponse(context, data, {
+            onSuccess: (left) => {
+                return {
+                    id: left,
+                }
             }
         });
     }
@@ -84,6 +63,7 @@ class NovelChapterController {
         getNovelChapterListUseCase: GetNovelChapterListUseCase,
         postNovelChapterUseCase: PostNovelChapterUseCase,
     }) {
+        super();
         this.getNovelChapterListUseCase = getNovelChapterListUseCase;
         this.postNovelChapterUseCase = postNovelChapterUseCase;
     }

@@ -6,45 +6,38 @@ import { GetNovelListParameter, GetNovelListUseCase }
     from "../../domain/use_cases/novel/get_novel_list_use_case.ts";
 import { PostNovelParameter, PostNovelUseCase } 
     from "../../domain/use_cases/novel/post_novel_use_case.ts";
+import { Controller } from "./base/controller.ts";
 
 export {
     NovelController,
 };
 
-class NovelController {
+class NovelController extends Controller {
     private readonly getNovelListUseCase: GetNovelListUseCase;
     private readonly postNovelUseCase: PostNovelUseCase;
 
     async postNovel(context: Context): Promise<void> {
-        const formBody = context.request.body({ type: 'form-data' })
-        const formData = await formBody.value.read();
-    
+        const record = await this.getRequestBodyRecord(context);
+        if (record instanceof Error) {
+            const data: ApiResponse = {
+                meta: {error: record.message},
+                data: null,
+            };
+            context.response.body = data;
+            return;
+        }
+
         const data = await this
             .postNovelUseCase
-            .invoke(new PostNovelParameter({record: formData.fields}));
+            .invoke(new PostNovelParameter({record: record}));
         
-        data.match({
-            left: (l) => {
-                const data: ApiResponse = {
-                    meta: {error: null},
-                    data: {
-                        id: l,
-                    },
+        this.matchResponse<string>(context, data, {
+            onSuccess: (left) => {
+                return {
+                    id: left,
                 };
-                context.response.status = 200;
-                context.response.body = data;
             },
-            right: (r) => {
-                const data: ApiResponse = {
-                    meta: {error: r.message},
-                    data: null,
-                };
-                context.response.status = typeof r.cause === 'number' 
-                    ? r.cause 
-                    : 404;
-                context.response.body = data;
-            }
-        });
+        });  
     }
 
     async getNovelList(context: Context, { name, tagIdListString } : {
@@ -60,26 +53,11 @@ class NovelController {
             }),
         );
         
-        data.match({
-            left: (l) => {
-                const data: ApiResponse = {
-                    meta: {error: null},
-                    data: l.map(value => value.toRecord()),
-                };
-                context.response.status = 200;
-                context.response.body = data;
-            },
-            right: (r) => {
-                const data: ApiResponse = {
-                    meta: {error: r.message},
-                    data: null,
-                };
-                context.response.status = typeof r.cause === 'number' 
-                    ? r.cause 
-                    : 404;
-                context.response.body = data;
-            },
-        });
+        this.matchResponse(context, data, {
+            onSuccess: (left) => {
+                return left.map(value => value.toRecord());
+            }
+        })
     }
 
     constructor({
@@ -88,6 +66,7 @@ class NovelController {
         getNovelListUseCase: GetNovelListUseCase,
         postNovelUseCase: PostNovelUseCase,
     }) {
+        super();
         this.getNovelListUseCase = getNovelListUseCase;
         this.postNovelUseCase = postNovelUseCase;
     }
