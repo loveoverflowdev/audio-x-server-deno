@@ -9,6 +9,7 @@ import { GetNovelListUseCase } from "../domain/use_cases/novel/get_novel_list_us
 import { PostNovelUseCase } from "../domain/use_cases/novel/post_novel_use_case.ts";
 import { GetNovelChapterListUseCase } from "../domain/use_cases/novel_chapter/get_novel_chapter_list_use_case.ts";
 import { PostNovelChapterUseCase } from "../domain/use_cases/novel_chapter/post_novel_chapter_use_case.ts";
+import { PutNovelChapterUseCase } from "../domain/use_cases/novel_chapter/put_novel_chapter_use_case.ts";
 import { NovelChapterController } from "../presentation/controllers/novel_chapter_controller.ts";
 import { NovelController } from "../presentation/controllers/novel_controller.ts";
 
@@ -41,6 +42,9 @@ function buildRouter({ novelService, novelChapterService } : {
     const postNovelChapterListUseCase: PostNovelChapterUseCase = new PostNovelChapterUseCase({
         novelChapterRepository: novelChapterRepository,
     });
+    const putNovelChapterUseCase: PutNovelChapterUseCase = new PutNovelChapterUseCase({
+        novelChapterRepository: novelChapterRepository,
+    });
 
     // Register controllers
     const novelController: NovelController = new NovelController({
@@ -51,6 +55,7 @@ function buildRouter({ novelService, novelChapterService } : {
     const novelChapterController: NovelChapterController = new NovelChapterController({
         postNovelChapterUseCase: postNovelChapterListUseCase,
         getNovelChapterListUseCase: getNovelChapterListUseCase,
+        putNovelChapterUseCase: putNovelChapterUseCase,
     });
     
     const apiRouter = new Router()
@@ -70,6 +75,9 @@ function buildRouter({ novelService, novelChapterService } : {
         )
         .post("/admin/novel-chapter", (context) => 
             novelChapterController.postNovelChapter(context),
+        )
+        .put('/admin/novel-chapter', (context) =>
+            novelChapterController.putNovelChapter(context),
         )
         .get("/", context => {
             context.response.body = 'audio x api';           

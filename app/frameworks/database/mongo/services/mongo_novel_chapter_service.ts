@@ -72,6 +72,41 @@ class MongoNovelChapterService implements NovelChapterService {
 
     async putNovelChapter({ record }: { record: Record<string,unknown>; })
     : Promise<Either<string,Error>> {
-        throw new Error("Method not implemented.");
+        
+        const index: number | undefined = parseInt(record['index']?.toString() ?? '')
+        const novelId: string | undefined = record['novelId']?.toString();
+        const name: string | undefined = record['name']?.toString();
+        const source: string | undefined = record['source']?.toString();
+        if (novelId == undefined || source == undefined || isNaN(index)) {
+            return Right(Error('Missing novelId or source, index: number', {
+                cause: 400,
+            }));
+        }
+
+        const novelChapterSchema: NovelChapterSchema = {
+            name: name ?? '',
+            source: source,
+        };
+        const novelSchema = await this
+            .novelCollection
+            .findOne({_id: new ObjectId(novelId)})
+        const novelChapterSchemaList = novelSchema?.chapterList ?? [];
+
+        if (novelChapterSchemaList.length > index) {
+            novelChapterSchemaList[index] = novelChapterSchema;
+        } else {
+            return Right(Error('Invalid Chapter Index: index > novelChapterSchemaList.length'))
+        }
+
+        const result = await this
+            .novelCollection
+            .updateOne({
+                _id: new ObjectId(novelId),
+            }, {
+                $set: {
+                    chapterList: novelChapterSchemaList,
+                },
+            });
+        return Left(`upsertedId: ${result.upsertedId}; modifiedCount: ${result.modifiedCount}; matchedCount: ${result.matchedCount}`);
     }
 }
