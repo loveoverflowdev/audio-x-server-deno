@@ -2,7 +2,7 @@ import { ObjectId }
     from "../../../../core/dependencies/mongo.ts";
 import { NovelEntity } 
     from "../../../../domain/entities/novel_entity.ts";
-import { NovelChapterEntityFromSchema, NovelChapterSchema } 
+import { NovelChapterSchema } 
     from "./novel_chapter_schema.ts";
 
 export {
@@ -12,9 +12,9 @@ export {
 
 interface NovelSchema {
     readonly _id: ObjectId | undefined;
+    readonly name: string;
     readonly author: string;
     readonly introduction: string;
-    readonly tagIdList: string[];
     readonly imageUrl: string;
     readonly chapterList: NovelChapterSchema[];
 }
@@ -24,9 +24,7 @@ function NovelEntityFromSchema(schema: NovelSchema) : NovelEntity {
         id: schema._id?.toString() ?? '',
         introduction: schema.introduction,
         author: schema.author,
-        tagIdList: schema.tagIdList,
         imageUrl: schema.imageUrl,
-        chapterList: schema.chapterList
-            .map(e => NovelChapterEntityFromSchema(e)),
+        name: schema.name,
     });
 }

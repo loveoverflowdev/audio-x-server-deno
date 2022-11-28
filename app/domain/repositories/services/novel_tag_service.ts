@@ -6,6 +6,11 @@ export {
 }
 
 abstract class NovelTagService {
+    abstract postNovelTag({record} : {record: Record<string, unknown>})
+        : Promise<Either<string, Error>>;
+    abstract putNovelTag({record} : {record: Record<string, unknown>})
+        : Promise<Either<string, Error>>;
+
     abstract getNovelTagList()
         : Promise<Either<NovelTagEntity[], Error>>;
 

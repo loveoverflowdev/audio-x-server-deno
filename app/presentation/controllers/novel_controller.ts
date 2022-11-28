@@ -40,22 +40,21 @@ class NovelController extends Controller {
         });  
     }
 
-    async getNovelList(context: Context, { name, tagIdListString } : {
+    async getNovelList(context: Context, { name, tagId } : {
         name: string | null,
-        tagIdListString: string | null,
+        tagId: string | null,
     }): Promise<void> {
-        const tagIdList = tagIdListString?.split(",");
         const data = await this
             .getNovelListUseCase
             .invoke(new GetNovelListParameter({
                 name: name,
-                tagIdList: tagIdList,
+                tagId: tagId,
             }),
         );
         
         this.matchResponse(context, data, {
             onSuccess: (left) => {
-                return left.map(value => value.toShortTypeRecord());
+                return left.map(value => value.toRecord());
             }
         })
     }

@@ -10,7 +10,7 @@ import { NovelChapterSchema }
     from "./schemas/novel_chapter_schema.ts";
 import { NovelSchema } 
     from "./schemas/novel_schema.ts";
-import { NovelTagScheme } 
+import { NovelTagSchema } 
     from "./schemas/novel_tag_schema.ts";
 import { MongoNovelChapterService } 
     from "./services/mongo_novel_chapter_service.ts";
@@ -37,10 +37,8 @@ async function buildAudioDatabase(): Promise<Database> {
 function buildNovelService(database: Database): NovelService {
     const novelCollection = database
         .collection<NovelSchema>("novel");
-    const novelTagService = buildNovelTagService(database);
     return new MongoNovelService({
         novelCollection: novelCollection,
-        novelTagService: novelTagService,
     });
 }
 
@@ -54,7 +52,7 @@ function buildNovelChapterService(database: Database): NovelChapterService {
 
 function buildNovelTagService(database: Database): NovelTagService {
     const novelTagCollection = database
-        .collection<NovelTagScheme>("novel_tag");
+        .collection<NovelTagSchema>("novel_tag");
     return new MongoNovelTagService({
         novelTagCollection: novelTagCollection,
     });

@@ -14,13 +14,13 @@ class NovelRepositoryImpl implements NovelRepository {
         this.novelService = novelService;
     }
 
-    getNovelList({name, tagIdList}: {
+    getNovelList({name, tagId}: {
         name: string | undefined | null, 
-        tagIdList: string[] | undefined,
+        tagId: string | undefined,
     }): Promise<Either<NovelEntity[], Error>> {
         return this.novelService.getNovelList({
             name: name, 
-            tagIdList: tagIdList,
+            tagId: tagId,
         });
     }
 

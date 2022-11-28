@@ -6,9 +6,9 @@ export {
 }
 
 interface NovelRepository {    
-    getNovelList({name, tagIdList}: {
+    getNovelList({name, tagId}: {
         name: string | undefined | null, 
-        tagIdList: string[] | undefined,
+        tagId: string | undefined,
     }): Promise<Either<NovelEntity[], Error>>;
 
     getNovel({id} : {id: string})

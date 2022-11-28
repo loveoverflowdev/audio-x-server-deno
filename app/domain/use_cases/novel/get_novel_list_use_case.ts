@@ -10,14 +10,14 @@ export {
 
 class GetNovelListParameter {
     name: string | undefined | null;
-    tagIdList: string[] | undefined;
+    tagId: string | undefined | null;
 
-    constructor({name, tagIdList} : {
+    constructor({name, tagId} : {
         name: string | undefined | null,
-        tagIdList: string[] | undefined,
+        tagId: string | undefined | null,
     }) {
         this.name = name;
-        this.tagIdList = tagIdList;
+        this.tagId = tagId;
     }
 }
 
@@ -28,10 +28,10 @@ class GetNovelListUseCase implements UseCase<GetNovelListParameter, NovelEntity[
         this.novelRepository = novelRepository;
     }
 
-    invoke(params: GetNovelListParameter): Promise<Either<NovelEntity[],Error>> {
+    invoke(params: GetNovelListParameter): Promise<Either<NovelEntity[], Error>> {
         return this.novelRepository.getNovelList({
             name: params.name,
-            tagIdList: params.tagIdList,
+            tagId: params.tagId,
         });
     }
 }
