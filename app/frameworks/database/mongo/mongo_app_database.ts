@@ -6,8 +6,6 @@ import { NovelService }
     from "../../../domain/repositories/services/novel_service.ts";
 import { NovelTagService } 
     from "../../../domain/repositories/services/novel_tag_service.ts";
-import { NovelChapterSchema } 
-    from "./schemas/novel_chapter_schema.ts";
 import { NovelSchema } 
     from "./schemas/novel_schema.ts";
 import { NovelTagSchema } 
@@ -37,8 +35,11 @@ async function buildAudioDatabase(): Promise<Database> {
 function buildNovelService(database: Database): NovelService {
     const novelCollection = database
         .collection<NovelSchema>("novel");
+    const novelTagCollection = database
+        .collection<NovelTagSchema>("novel_tag");
     return new MongoNovelService({
         novelCollection: novelCollection,
+        novelTagCollection: novelTagCollection,
     });
 }
 

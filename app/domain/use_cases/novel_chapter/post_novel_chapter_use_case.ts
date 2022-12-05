@@ -1,6 +1,6 @@
 import { Either } from "../../../core/dependencies/monads.ts";
 import { NovelChapterRepository } from "../../repositories/novel_chapter_repository.ts";
-import { UseCase } from "../common/use_case.ts";
+import { UseCase } from "../base/use_case.ts";
 
 export {
     PostNovelChapterUseCase,

@@ -9,12 +9,14 @@ import { NovelService }
 import { NovelEntityFromSchema, NovelSchema } 
     from "../schemas/novel_schema.ts";
 import { NovelTagSchema } from "../schemas/novel_tag_schema.ts";
+import { MongoService } from "./base/mongo_service.ts";
 
 export {
     MongoNovelService,
 }
 
-class MongoNovelService extends NovelService {
+class MongoNovelService extends MongoService 
+    implements NovelService {
     private readonly novelCollection: Collection<NovelSchema>;
     private readonly novelTagCollection: Collection<NovelTagSchema>;
 
@@ -29,12 +31,25 @@ class MongoNovelService extends NovelService {
     
     // TODO: Filter by name & tags
     // TODO: Test tag search
-    override async getNovelList({ name, tagId } : { 
-        name: string | undefined | null, 
+
+    async getNovelList({ searchText, tagId } : { 
+        searchText: string | undefined | null, 
         tagId: string | undefined | null,
     }) : Promise<Either<NovelEntity[], Error>> {
-        if (tagId == undefined || tagId == null) {
-            const novelSchemaList = await this.novelCollection.find().toArray();
+        const filter = searchText ? {
+            $or: [
+                {"author": {$regex : searchText, $options : 'i'}},
+                {"introduction": {$regex : searchText, $options : 'i'}},
+                {"name": {$regex : searchText, $options : 'i'}},
+            ]
+        } : {};
+
+        console.log(filter);
+
+        if (!tagId) {
+            const novelSchemaList = await this
+                .novelCollection.find(filter)
+                .toArray();
             return Left(novelSchemaList.map(e => NovelEntityFromSchema(e)));
         }
 
@@ -42,7 +57,7 @@ class MongoNovelService extends NovelService {
             .novelTagCollection
             .findOne({_id: new ObjectId(tagId)});
         
-        if (novelTagSchema == undefined) {
+        if (!novelTagSchema) {
             return Right(Error(`novel tag with id: ${tagId} not found`, {
                 cause: 404,
             }));
@@ -63,41 +78,50 @@ class MongoNovelService extends NovelService {
         return Left(novelEntityList);
     }
 
-    override async getNovel({ id }: { id: string; })
-        : Promise<Either<NovelEntity, Error>> {
-        
+    async getNovel({ id, searchText = undefined }: { 
+        id: string;
+        searchText?: string | undefined ,
+    }) : Promise<Either<NovelEntity, Error>> {
+        const filter = searchText ? {
+            $or: [
+                {"author": {$regex : searchText, $options : 'i'}},
+                {"introduction": {$regex : searchText, $options : 'i'}},
+                {"name": {$regex : searchText, $options : 'i'}},
+            ]
+        } : {};
+
+
         const schema = await this.novelCollection.findOne({
             _id: new ObjectId(id),
+            filter,
         });
-        if (schema == undefined) {
+        if (!schema) {
             return Right(Error(`Novel Not Found At Id: ${id}`));
         }
         return Left(NovelEntityFromSchema(schema));
     }
 
-    override async postNovel({ record }: { record: Record<string,unknown> })
+    async postNovel({ record }: { record: Record<string,unknown> })
         : Promise<Either<string, Error>> {
         
-        const name: string | undefined = record['name']?.toString();
-        const author: string | undefined = record['author']?.toString();
-        const introduction: string | undefined = record['introduction']?.toString();
-        const imageUrl: string | undefined = record['imageUrl']?.toString();
+        const validatedParams = this.parseRecord(record, {
+            pattern: {
+                name: '',
+                author: '',
+                introduction: '',
+                imageUrl: '',
+            }
+        });
 
-        if (author == undefined 
-            || introduction == undefined
-            || imageUrl == undefined
-            || name == undefined
-        ) {
-            return Right(Error('Missing author or introduction, imageUrl, name', {
-                cause: 400,
-            }));
+        if (validatedParams instanceof Error) {
+            return Right(validatedParams);
         }
 
         const document: InsertDocument<NovelSchema> = {
-            author: author,
-            introduction: introduction,
-            imageUrl: imageUrl,
-            name: name,
+            author: validatedParams.author,
+            introduction: validatedParams.introduction,
+            imageUrl: validatedParams.imageUrl,
+            name: validatedParams.name,
             chapterList: [],
         };
         const result = await this
@@ -107,33 +131,34 @@ class MongoNovelService extends NovelService {
         return Left(result.toString());
     }
     
-    override async putNovel({ record }: { record: Record<string,unknown> })
+    async putNovel({ record }: { record: Record<string,unknown> })
         : Promise<Either<string, Error>> {
-        
-        const name: string | undefined = record['name']?.toString();
-        const id: string | undefined = record['id']?.toString();
-        const author: string | undefined = record['author']?.toString();
-        const introduction: string | undefined = record['introduction']?.toString();
-        const imageUrl: string | undefined = record['imageUrl']?.toString();
 
-        if (id == undefined) {
-            return Right(Error('Missing novel id', {
-                cause: 400,
-            }));
+        const validatedParams = this.parseRecord(record, {
+            pattern: {
+                id: '',
+                name: '',
+                author: '',
+                introduction: '',
+                imageUrl: '',
+            }
+        });
+
+        if (validatedParams instanceof Error) {
+            return Right(validatedParams);
         }
-
-        const setOption: Record<string, unknown> = {};
-        if (author != undefined) setOption['author'] = author;
-        if (introduction != undefined) setOption['introduction'] = introduction;
-        if (name != undefined) setOption['name'] = name;
-        if (imageUrl != undefined) setOption['imageUrl'] = imageUrl;
 
         const result = await this
             .novelCollection
             .updateOne({
-                _id: new ObjectId(id),
+                _id: new ObjectId(validatedParams.id),
             }, {
-                $set: setOption,
+                $set: {
+                    author: validatedParams.author,
+                    introduction: validatedParams.introduction,
+                    name: validatedParams.name,
+                    imageUrl: validatedParams.imageUrl,
+                },
             });
         
         return Left(`upsertedId: ${result.upsertedId}; modifiedCount: ${result.modifiedCount}; matchedCount: ${result.matchedCount}`);

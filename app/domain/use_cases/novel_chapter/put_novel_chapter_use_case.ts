@@ -3,7 +3,7 @@ import { Either }
 import { NovelChapterRepository } 
     from "../../repositories/novel_chapter_repository.ts";
 import { UseCase } 
-    from "../common/use_case.ts";
+    from "../base/use_case.ts";
 
 export {
     PutNovelChapterUseCase,

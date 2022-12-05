@@ -1,7 +1,7 @@
 import { Either } from "../../../core/dependencies/monads.ts";
 import { NovelEntity } from "../../entities/novel_entity.ts";
 import { NovelRepository } from "../../repositories/novel_repository.ts";
-import { UseCase } from "../common/use_case.ts";
+import { UseCase } from "../base/use_case.ts";
 
 export {
     GetNovelListUseCase,
@@ -9,14 +9,14 @@ export {
 }
 
 class GetNovelListParameter {
-    name: string | undefined | null;
+    searchText: string | undefined | null;
     tagId: string | undefined | null;
 
-    constructor({name, tagId} : {
-        name: string | undefined | null,
+    constructor({searchText, tagId} : {
+        searchText: string | undefined | null,
         tagId: string | undefined | null,
     }) {
-        this.name = name;
+        this.searchText = searchText;
         this.tagId = tagId;
     }
 }
@@ -30,7 +30,7 @@ class GetNovelListUseCase implements UseCase<GetNovelListParameter, NovelEntity[
 
     invoke(params: GetNovelListParameter): Promise<Either<NovelEntity[], Error>> {
         return this.novelRepository.getNovelList({
-            name: params.name,
+            searchText: params.searchText,
             tagId: params.tagId,
         });
     }

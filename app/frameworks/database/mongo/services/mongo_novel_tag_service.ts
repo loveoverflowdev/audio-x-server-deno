@@ -8,12 +8,14 @@ import { NovelTagService }
     from "../../../../domain/repositories/services/novel_tag_service.ts";
 import { NovelTagEntityFromSchema, NovelTagSchema } 
     from "../schemas/novel_tag_schema.ts";
+import { MongoService } from "./base/mongo_service.ts";
 
 export {
     MongoNovelTagService,
 }
 
-class MongoNovelTagService extends NovelTagService {
+class MongoNovelTagService extends MongoService 
+    implements NovelTagService {
 
     private readonly novelTagCollection: Collection<NovelTagSchema>;
 
@@ -24,22 +26,24 @@ class MongoNovelTagService extends NovelTagService {
         this.novelTagCollection = novelTagCollection;
     }
     
-    override async postNovelTag({record}: {record: Record<string, unknown>})
-    : Promise<Either<string, Error>> {
-        const name = record['name']?.toString();
-        const novelIdList: string[] = record['novelIdList'] instanceof Array
-            ? record['novelIdList'].map(e => e.toString()) 
-            : [];
+    async postNovelTag({record}: {record: Record<string, unknown>})
+    : Promise<Either<string, Error>> {        
+        const validatedParams = this.parseRecord(record, {
+            pattern: {
+                name: '',
+                novelIdList: ['']
+            },
+        });
 
-        if (name == undefined) {
-            return Right(Error('Missing name', {
-                cause: 400,
-            }));
+        if (validatedParams instanceof Error) {
+            return Right(validatedParams);
         }
 
         const document: InsertDocument<NovelTagSchema> = {
-            name: name,
-            novelIdList: novelIdList.map(e => new ObjectId(e)),
+            name: validatedParams.name,
+            novelIdList: validatedParams
+                .novelIdList
+                .map(e => new ObjectId(e)),
         };
         const result = await this
             .novelTagCollection
@@ -48,7 +52,7 @@ class MongoNovelTagService extends NovelTagService {
         return Left(result.toString());
     }
     
-    override async putNovelTag({record}: {record: Record<string, unknown>})
+    async putNovelTag({record}: {record: Record<string, unknown>})
     : Promise<Either<string, Error>> {
         const id = record['id']?.toString();
         const name = record['name']?.toString();
@@ -56,7 +60,7 @@ class MongoNovelTagService extends NovelTagService {
             ? record['novelIdList'].map(e => e.toString()) 
             : [];
 
-        if (id == undefined) {
+        if (!id) {
             return Right(Error('Missing id', {
                 cause: 400,
             }));
@@ -77,7 +81,7 @@ class MongoNovelTagService extends NovelTagService {
         return Left(result.toString());
     }
     
-    override async getNovelTagList()
+    async getNovelTagList()
         : Promise<Either<NovelTagEntity[],Error>> {
         
         const schemaList = await this
@@ -87,7 +91,7 @@ class MongoNovelTagService extends NovelTagService {
         return Left(schemaList.map(e => NovelTagEntityFromSchema(e)));
     }
 
-    override async getNovelTag({ id }: { id: string })
+    async getNovelTag({ id }: { id: string })
         : Promise<Either<NovelTagEntity, Error>> {
         
         const schema = await this
@@ -101,7 +105,7 @@ class MongoNovelTagService extends NovelTagService {
         );
     }
 
-    override async checkIfTagListExisted({ idList }: { idList: string[] })
+    async checkIfTagListExisted({ idList }: { idList: string[] })
         : Promise<Error | null> {
         for (const id in idList) {
             const tag = await this

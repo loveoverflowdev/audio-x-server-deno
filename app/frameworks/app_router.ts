@@ -61,7 +61,7 @@ function buildRouter({ novelService, novelChapterService } : {
     const apiRouter = new Router()
         .get("/app/novel-list", (context) => 
             novelController.getNovelList(context, {
-                name: context.request.url.searchParams.get('name'),
+                searchText: context.request.url.searchParams.get('searchText'),
                 tagId: context.request.url.searchParams.get('tagId'),
             }),
         )

@@ -1,4 +1,4 @@
-import { Either, Left } from "../../core/dependencies/monads.ts";
+import { Either } from "../../core/dependencies/monads.ts";
 import { NovelEntity } from "../../domain/entities/novel_entity.ts";
 import { NovelRepository } from "../../domain/repositories/novel_repository.ts";
 import { NovelService } from "../../domain/repositories/services/novel_service.ts";
@@ -14,12 +14,12 @@ class NovelRepositoryImpl implements NovelRepository {
         this.novelService = novelService;
     }
 
-    getNovelList({name, tagId}: {
-        name: string | undefined | null, 
-        tagId: string | undefined,
+    getNovelList({searchText, tagId}: {
+        searchText: string | undefined | null, 
+        tagId: string | undefined | null,
     }): Promise<Either<NovelEntity[], Error>> {
         return this.novelService.getNovelList({
-            name: name, 
+            searchText: searchText, 
             tagId: tagId,
         });
     }

@@ -11,17 +11,21 @@ import { Collection, ObjectId }
 import { NovelSchema } 
     from "../schemas/novel_schema.ts";
 import { ErrorFromAny } from "../../../../core/response/error_from_any.ts";
+import { MongoService } from "./base/mongo_service.ts";
 
 export {
     MongoNovelChapterService,
 }
 
-class MongoNovelChapterService implements NovelChapterService {
+class MongoNovelChapterService extends MongoService 
+    implements NovelChapterService {
+    
     private readonly novelCollection: Collection<NovelSchema>;
 
     constructor({ novelCollection} : {
         novelCollection: Collection<NovelSchema>,
     }) {
+        super();
         this.novelCollection = novelCollection;
     }
 
@@ -43,25 +47,27 @@ class MongoNovelChapterService implements NovelChapterService {
 
     async postNovelChapter({ record }: { record: Record<string, unknown> })
     : Promise<Either<string, Error>> {
-        
-        const novelId: string | undefined = record['novelId']?.toString();
-        const name: string | undefined = record['name']?.toString();
-        const source: string | undefined = record['source']?.toString();
-        if (novelId == undefined ||  source == undefined) {
-            return Right(Error('Missing novelId or source', {
-                cause: 400,
-            }));
+        const validatedParams = this.parseRecord(record, {
+            pattern: {
+                novelId: '',
+                name: '',
+                source: '',
+            }
+        });
+
+        if (validatedParams instanceof Error) {
+            return Right(validatedParams);
         }
 
         const novelChapterSchema: NovelChapterSchema = {
-            name: name ?? '',
-            source: source,
+            name: validatedParams.name,
+            source: validatedParams.source,
         };
 
         const result = await this
             .novelCollection
             .updateOne({
-                _id: new ObjectId(novelId),
+                _id: new ObjectId(validatedParams.novelId),
             }, {
                 $push: {chapterList: {
                     $each: [novelChapterSchema],
@@ -71,29 +77,31 @@ class MongoNovelChapterService implements NovelChapterService {
     }
 
     async putNovelChapter({ record }: { record: Record<string,unknown>; })
-    : Promise<Either<string,Error>> {
-        
-        const index: number | undefined = parseInt(record['index']?.toString() ?? '')
-        const novelId: string | undefined = record['novelId']?.toString();
-        const name: string | undefined = record['name']?.toString();
-        const source: string | undefined = record['source']?.toString();
-        if (novelId == undefined || source == undefined || isNaN(index)) {
-            return Right(Error('Missing novelId or source, index: number', {
-                cause: 400,
-            }));
+    : Promise<Either<string,Error>> {        
+        const validatedParams = this.parseRecord(record, {
+            pattern: {
+                index: 0,
+                novelId: '',
+                name: '',
+                source: '',
+            }
+        });
+
+        if (validatedParams instanceof Error) {
+            return Right(validatedParams);
         }
 
         const novelChapterSchema: NovelChapterSchema = {
-            name: name ?? '',
-            source: source,
+            name: validatedParams.name,
+            source: validatedParams.source,
         };
         const novelSchema = await this
             .novelCollection
-            .findOne({_id: new ObjectId(novelId)})
+            .findOne({_id: new ObjectId(validatedParams.novelId)})
         const novelChapterSchemaList = novelSchema?.chapterList ?? [];
 
-        if (novelChapterSchemaList.length > index) {
-            novelChapterSchemaList[index] = novelChapterSchema;
+        if (novelChapterSchemaList.length > validatedParams.index) {
+            novelChapterSchemaList[validatedParams.index] = novelChapterSchema;
         } else {
             return Right(Error('Invalid Chapter Index: index > novelChapterSchemaList.length'))
         }
@@ -101,7 +109,7 @@ class MongoNovelChapterService implements NovelChapterService {
         const result = await this
             .novelCollection
             .updateOne({
-                _id: new ObjectId(novelId),
+                _id: new ObjectId(validatedParams.novelId),
             }, {
                 $set: {
                     chapterList: novelChapterSchemaList,

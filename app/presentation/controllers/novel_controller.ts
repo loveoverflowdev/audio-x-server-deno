@@ -40,14 +40,14 @@ class NovelController extends Controller {
         });  
     }
 
-    async getNovelList(context: Context, { name, tagId } : {
-        name: string | null,
+    async getNovelList(context: Context, { searchText, tagId } : {
+        searchText: string | null,
         tagId: string | null,
     }): Promise<void> {
         const data = await this
             .getNovelListUseCase
             .invoke(new GetNovelListParameter({
-                name: name,
+                searchText: searchText,
                 tagId: tagId,
             }),
         );
@@ -56,7 +56,7 @@ class NovelController extends Controller {
             onSuccess: (left) => {
                 return left.map(value => value.toRecord());
             }
-        })
+        });
     }
 
     constructor({

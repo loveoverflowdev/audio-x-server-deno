@@ -18,5 +18,6 @@ function NovelTagEntityFromSchema(schema: NovelTagSchema): NovelTagEntity {
     return new NovelTagEntity({
         id: schema._id?.toString() ?? '',
         name: schema.name,
+        
     });
 }
