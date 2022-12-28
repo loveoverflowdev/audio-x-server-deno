@@ -2,4 +2,4 @@ import { runApp } from "./app/app.ts";
 
 await runApp();
 
-// TODO: delete config index
+// deno run --allow-net --allow-read --allow-env index.ts

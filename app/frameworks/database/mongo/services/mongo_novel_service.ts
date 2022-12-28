@@ -41,6 +41,7 @@ class MongoNovelService extends MongoService
                 {"author": {$regex : searchText, $options : 'i'}},
                 {"introduction": {$regex : searchText, $options : 'i'}},
                 {"name": {$regex : searchText, $options : 'i'}},
+                {"extra": {$regex : searchText, $options : 'i'}},
             ]
         } : {};
 
@@ -87,6 +88,7 @@ class MongoNovelService extends MongoService
                 {"author": {$regex : searchText, $options : 'i'}},
                 {"introduction": {$regex : searchText, $options : 'i'}},
                 {"name": {$regex : searchText, $options : 'i'}},
+                
             ]
         } : {};
 

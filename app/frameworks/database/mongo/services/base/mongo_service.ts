@@ -16,7 +16,7 @@ class MongoService {
             if  (typeof record[key] == typeof value) {
                 result[key] = record[key];
             } else {
-                return Error('Missing ${key}', {cause: 400});
+                return Error(`Missing ${key}`, {cause: 400});
             }
         }
         return result;
