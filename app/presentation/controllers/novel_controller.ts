@@ -1,43 +1,72 @@
-import { Context } from "../../core/dependencies/oak.ts";
-import { ApiResponse } from "../../core/response/api_response.ts";
-import { GetDummyNovelListUseCase } 
-    from "../../domain/use_cases/get_dummy_novel_lise_use_case.ts";
+import { Context } 
+    from "../../core/dependencies/oak.ts";
+import { ApiResponse } 
+    from "../../core/response/api_response.ts";
+import { GetNovelListParameter, GetNovelListUseCase } 
+    from "../../domain/use_cases/novel/get_novel_list_use_case.ts";
+import { PostNovelParameter, PostNovelUseCase } 
+    from "../../domain/use_cases/novel/post_novel_use_case.ts";
+import { Controller } from "./base/controller.ts";
 
 export {
     NovelController,
 };
 
-class NovelController {
-    private getDummyNovelListUseCase: GetDummyNovelListUseCase;
+class NovelController extends Controller {
+    private readonly getNovelListUseCase: GetNovelListUseCase;
+    private readonly postNovelUseCase: PostNovelUseCase;
 
-    async getNovelList(context: Context): Promise<void> {
-        const data = await this.getDummyNovelListUseCase.invoke();
+    async postNovel(context: Context): Promise<void> {
+        const record = await this.getRequestBodyRecord(context);
+        if (record instanceof Error) {
+            const data: ApiResponse = {
+                meta: {error: record.message},
+                data: null,
+            };
+            context.response.body = data;
+            return;
+        }
+
+        const data = await this
+            .postNovelUseCase
+            .invoke(new PostNovelParameter({record: record}));
         
-        data.match({
-            left: (l) => {
-                const data: ApiResponse = {
-                    meta: {error: null},
-                    data: l.map(value => value.toRecord()),
+        this.matchResponse<string>(context, data, {
+            onSuccess: (left) => {
+                return {
+                    id: left,
                 };
-                context.response.status = 200;
-                context.response.body = data;
             },
-            right: (r) => {
-                const data: ApiResponse = {
-                    meta: {error: r},
-                    data: null,
-                };
-                context.response.status = 404;
-                context.response.body = data;
-            },
+        });  
+    }
+
+    async getNovelList(context: Context, { searchText, tagId } : {
+        searchText: string | null,
+        tagId: string | null,
+    }): Promise<void> {
+        const data = await this
+            .getNovelListUseCase
+            .invoke(new GetNovelListParameter({
+                searchText: searchText,
+                tagId: tagId,
+            }),
+        );
+        
+        this.matchResponse(context, data, {
+            onSuccess: (left) => {
+                return left.map(value => value.toRecord());
+            }
         });
     }
 
     constructor({
-        getDummyNovelListUseCase,
+        getNovelListUseCase, postNovelUseCase,
     } : {
-        getDummyNovelListUseCase: GetDummyNovelListUseCase,
+        getNovelListUseCase: GetNovelListUseCase,
+        postNovelUseCase: PostNovelUseCase,
     }) {
-        this.getDummyNovelListUseCase = getDummyNovelListUseCase;
+        super();
+        this.getNovelListUseCase = getNovelListUseCase;
+        this.postNovelUseCase = postNovelUseCase;
     }
 }

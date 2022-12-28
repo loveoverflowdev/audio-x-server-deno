@@ -1,3 +1,5 @@
 import { runApp } from "./app/app.ts";
 
-runApp();
+await runApp();
+
+// deno run --allow-net --allow-read --allow-env index.ts

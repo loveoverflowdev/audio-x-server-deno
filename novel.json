@@ -1,0 +1,745 @@
+[{
+  "_id": {
+    "$oid": "6392a8c372e9e5e5a3cb166c"
+  },
+  "author": "Truyện cổ tích",
+  "introduction": "Truyen hay",
+  "imageUrl": "https://catusf.github.io/radio2podcasts/PPUD-①Truyencotich.png",
+  "name": "Alibaba Và 40 Tên Cướp",
+  "chapterList": [
+    {
+      "name": "Ten chuong 1",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/Alibaba-Va-Bon-Muoi-Ten-Cuop-03-phatphapungdung.com.mp3"
+    },
+    {
+      "name": "Ten chuong 2",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/Alibaba-Va-Bon-Muoi-Ten-Cuop-03-phatphapungdung.com.mp3"
+    },
+    {
+      "name": "Ten chuong 3",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/Alibaba-Va-Bon-Muoi-Ten-Cuop-03-phatphapungdung.com.mp3"
+    },
+    {
+      "name": "Ten chuong 4",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/Alibaba-Va-Bon-Muoi-Ten-Cuop-03-phatphapungdung.com.mp3"
+    }
+  ],
+  "extra": "_tag1"
+},{
+  "_id": {
+    "$oid": "6395f2587ae2b87561abdcc5"
+  },
+  "author": "Robert Louis Stevenson",
+  "introduction": "Truyện Phiêu Lưu",
+  "imageUrl": "https://catusf.github.io/radio2podcasts/Archive.org-DaoChauBauDaogiauvang.png",
+  "name": "Đảo Châu Báu (Đảo giấu vàng)",
+  "chapterList": [
+    {
+      "name": "Đảo Dấu Vàng Chương 1",
+      "source": "https://archive.org/download/dao-chau-bau_202009/1.mp3"
+    },
+    {
+      "name": "Đảo Dấu Vàng Chương 2",
+      "source": "https://archive.org/download/dao-chau-bau_202009/2.mp3"
+    }
+  ],
+  "extra": "_tag1"
+},{
+  "_id": {
+    "$oid": "6395f5477ae2b87561abdcc6"
+  },
+  "author": "Robert Louis Stevenson",
+  "introduction": "Cuộc đời của người thành công",
+  "imageUrl": "https://catusf.github.io/radio2podcasts/Archive.org-WarrenBuffettQuaTrinhHinhThanhMotNhaTuBanMy.png",
+  "name": "Warren Buffett - Quá Trình Hình Thành Một Nhà Tư Bản Mỹ",
+  "chapterList": [
+    {
+      "name": "Hình thành nhà tư bản Mỹ",
+      "source": "https://archive.org/download/qua-trinh-7/qua-trinh-1.mp3"
+    }
+  ],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "6396b911a9cb5538c88966d5"
+  },
+  "author": "Dân gian",
+  "introduction": "Truyện cổ tích",
+  "imageUrl": "https://catusf.github.io/radio2podcasts/PPUD-①Truyencotich.png",
+  "name": "365 Câu Chuyện Thần Thoại Ấn Độ Hay Nhất",
+  "chapterList": [
+    {
+      "name": "Shakuntala",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/365-Cau-Chuyen-Than-Thai-An-Do-Hay-Nhat-01-phatphapungdung.com.mp3"
+    },
+    {
+      "name": "Samudra Manthan",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/365-Cau-Chuyen-Than-Thai-An-Do-Hay-Nhat-02-phatphapungdung.com.mp3"
+    },
+    {
+      "name": "Dhruva dũng cảm",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/365-Cau-Chuyen-Than-Thai-An-Do-Hay-Nhat-03-phatphapungdung.com.mp3"
+    },
+    {
+      "name": "Thác Ganga đổ xuống",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/sach-noi-new/co-tich-van-hoc-nuoc-ngoai-phat-phap-ungdung/365-Cau-Chuyen-Than-Thai-An-Do-Hay-Nhat-04-phatphapungdung.com.mp3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "6396b9e9a9cb5538c88966d6"
+  },
+  "author": "Dân gian",
+  "introduction": "Truyện cổ tích",
+  "imageUrl": "https://catusf.github.io/radio2podcasts/PPUD-①Truyencotich.png",
+  "name": "Nghìn Lẻ Một Đêm",
+  "chapterList": [
+    {
+      "name": "Ngụ ngôn con bò, con lừa và người thợ cày",
+      "source": "https://s1.phatphapungdung.com/media/bookspeak/TruyenDoc/NghinLeMotDem/Sach-Noi-Audio-Book-Nghin-Le-Mot-Dem-03-www.phatphapungdung.com.mp3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63ac7bb104e60d8c10b116cf"
+  },
+  "author": "Giang Hồ Gặp Lại",
+  "introduction": "Đây là một cái tiện Thần bị trấn áp vạn năm.\nĐây là một cái quái vật da mặt dày như tường thành, ai gây ai xui xẻo.\nĐây là một cái chúa cứu thế cuốn vào thế tục phân tranh, lại gánh vác tái tạo Thần Giới sứ mệnh.\nHắn gọi Vân Phi Dương, một cái đồ vô sỉ, một cái Siêu Thần Yêu Nghiệt!",
+  "imageUrl": "https://asset.truyenaudiocv.org/uploads/manga/sieu-than-yeu-nghiet/cover/cover_250x350.jpg",
+  "name": "Siêu Thần Yêu Nghiệt",
+  "chapterList": [
+    {
+      "name": "Trùng sinh lại đến",
+      "source": "https://ia801507.us.archive.org/9/items/gtaaudio_581385/1976702_6_vi.mp3?s=1.0"
+    },
+    {
+      "name": "Đánh nhau dùng cục gạch",
+      "source": "https://ia801504.us.archive.org/21/items/gtaaudio_376196/1956901_3_vi.mp3?s=1.0"
+    },
+    {
+      "name": "Nghịch Thiên Quyết",
+      "source": "https://ia601504.us.archive.org/21/items/gtaaudio_376196/1956903_3_vi.mp3?s=1.0"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63ac7d2e04e60d8c10b116d0"
+  },
+  "author": "Oa Ngưu Cuồng Bôn",
+  "introduction": "Thiếu niên Tần Trần, tinh môn bị đoạt, tu vi bị phế, nhưng lại nguyên nhân này giác tỉnh cửu sinh cửu thế ký ức, khai mở nghịch thiên thứ mười thế hành trình . Vạn giới vì thư, tay ta chấp bút, soạn nhạc đại thiên thế giới . Trăm vực vì sơn, ta tâm vì hải, đi ra thông thiên thần đạo. Tay kình thiên, chân đạp địa, đời này, ta là Đế Tôn, người nào, dám không phục ?",
+  "imageUrl": "https://asset.truyenaudiocv.org/uploads/manga/than-dao-de-ton/cover/cover_250x350.jpg",
+  "name": "Thần Đạo Đế Tôn",
+  "chapterList": [
+    {
+      "name": "Cướp đoạt tinh môn",
+      "source": "https://nnvh.ttscv.com/8958050_5_vi-s7A0tTAwNYg3jS_LBAA.mp3?s=1.0"
+    },
+    {
+      "name": "Cửu sinh cửu thế",
+      "source": "https://ia904700.us.archive.org/19/items/gtaaudio_363281/8154112_6_vi.mp3?s=1.0"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63ac7e9d04e60d8c10b116d1"
+  },
+  "author": "Tính Khí Của Tra Nữ",
+  "introduction": "Cố Hành Yên có tính nghiện, nhưng là mỗi người đều ái nàng. \n Lôi: Có nữ chủ cùng nam nhị làm tình cảnh tượng, nữ chủ thật sự cực kỳ phóng đãng, không có tam quan",
+  "imageUrl": "https://asset.truyenaudiocv.org/uploads/manga/tinh-khi-cua-tra-nu/cover/cover_250x350.jpg",
+  "name": "Tính Khí Của Tra Nữ",
+  "chapterList": [
+    {
+      "name": "Phần 1",
+      "source": "https://ia801404.us.archive.org/24/items/gtaaudio_230160/116097107_3_vi.mp3?s=1.0"
+    }
+  ],
+  "extra": "_tag1"
+},{
+  "_id": {
+    "$oid": "63ac7f4d04e60d8c10b116d2"
+  },
+  "author": "Lại Điểu",
+  "introduction": "Bởi vì một trận thần bí linh khí triều tịch, giữa thiên địa tất cả linh khí trong nháy mắt biến mất đến không còn một mảnh, Tu Tiên giới trực tiếp tiến vào mạt pháp thời đại",
+  "imageUrl": "https://asset.truyenaudiocv.org/uploads/manga/ta-tai-mat-phap-thoi-dai-lam-kiem-tien/cover/cover_250x350.jpg",
+  "name": "Ta Tại Mạt Pháp Thời Đại Làm Kiếm Tiên",
+  "chapterList": [
+    {
+      "name": "Nhạc Nền",
+      "source": "https://archive.org/download/collection-of-bgm-never-ending/NhacNen1.mp3"
+    }
+  ],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "63ac806704e60d8c10b116d3"
+  },
+  "author": "Ác Cố Hữu",
+  "introduction": "Không nghĩ tới linh hồn chuyển kiếp đến Tống vũ đại thế giới một côn đồ trên người , lấy được Tà Ác hệ thống . Ta là một ác nhân , cho nên cái gì cũng không sợ , từ đó về sau có thể muốn làm gì thì làm . Tiết tháo không có ranh giới cuối cùng , làm ác để ý tới , đây là Tống vũ thế giới",
+  "imageUrl": "https://asset.truyenaudiocv.org/uploads/manga/vo-hiep-chi-vo-tan-ta-ac/cover/cover_250x350.jpg",
+  "name": "Võ Hiệp Chi Vô Tận Tà Ác",
+  "chapterList": [],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "63ac815804e60d8c10b116d4"
+  },
+  "author": "Cổ Long",
+  "introduction": "Kiếm hiệp",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/06/quy-luyen-hiep-tinh-audio.jpg",
+  "name": "Quỷ Luyến Hiệp Tình",
+  "chapterList": [
+    {
+      "name": "Phần 1",
+      "source": "http://archive.org/download/TruyenAudioMoi-qlht/quy-luyen-hiep-tinh-1.mp3"
+    },
+    {
+      "name": "Phần 2",
+      "source": "http://archive.org/download/TruyenAudioMoi-qlht/quy-luyen-hiep-tinh-2.mp3"
+    },
+    {
+      "name": "Phần 3",
+      "source": "http://archive.org/download/TruyenAudioMoi-qlht/quy-luyen-hiep-tinh-3.mp3"
+    },
+    {
+      "name": "Phần 4",
+      "source": "http://archive.org/download/TruyenAudioMoi-qlht/quy-luyen-hiep-tinh-4.mp3"
+    },
+    {
+      "name": "Phần 5",
+      "source": "http://archive.org/download/TruyenAudioMoi-qlht/quy-luyen-hiep-tinh-5.mp3"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "63ac826504e60d8c10b116d5"
+  },
+  "author": "Quân Tử Giang Sơn",
+  "introduction": "Cung Đấu, Đã Hoàn Thành, Huyền Huyễn, Ngôn Tình, Xuyên Không",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2020/03/nhat-sinh-nhat-the-tieu-hong-tran.jpg",
+  "name": "NHẤT SINH NHẤT THẾ TIẾU HỒNG TRẦN",
+  "chapterList": [
+    {
+      "name": "Phần 1",
+      "source": "http://archive.org/download/sound170_201912/sound1.mp3"
+    },
+    {
+      "name": "Phần 2",
+      "source": "http://archive.org/download/sound170_201912/sound2.mp3"
+    },
+    {
+      "name": "Phần 3",
+      "source": "http://archive.org/download/sound170_201912/sound2.mp3"
+    },
+    {
+      "name": "Phần 4",
+      "source": "http://archive.org/download/sound170_201912/sound2.mp3"
+    },
+    {
+      "name": "Phần 5",
+      "source": "http://archive.org/download/sound170_201912/sound2.mp3"
+    }
+  ],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "63ac82ee04e60d8c10b116d6"
+  },
+  "author": "PeaGod",
+  "introduction": "Ngôn Tình",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2020/01/tien-mon.jpg",
+  "name": "Tiên Môn",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac832b04e60d8c10b116d7"
+  },
+  "author": "Tiêu Thư",
+  "introduction": "Huyền Huyễn",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/12/bach-bao-tong-quan.jpg",
+  "name": "Bạch Bào Tổng Quản",
+  "chapterList": [],
+  "extra": "_tag1"
+},{
+  "_id": {
+    "$oid": "63ac838804e60d8c10b116d8"
+  },
+  "author": "Closeads",
+  "introduction": "Nhân vật chính là Tiểu Khai, đang trên đường đi đến nơi làm việc của hắn thì một lão già không biết ở đâu chui ra dụ dỗ hắn mua bí kíp võ công của lão sau đó nói với hắn rằng hôm nay sẽ là ngày đen đủi của hắn. Tiểu Khai tất nhiên không tin. Nhưng dường như mọi việc đã được sắp đặt từ trước, những lời lão già nói đều trở thành sự thật. Tiểu Khai gặp lại lão già 1 lần nữa, bỏ qua tất cả các bí kíp thất truyền, Tiểu Khai chọn lấy cho mình Vô Tự Thiên Thư và vận mệnh hắn đã thay đổi từ đó…",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/vo-tu-thien-thu.jpg",
+  "name": "Vô Tự Thiên Thư",
+  "chapterList": [
+    {
+      "name": "Phần 1",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 2",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 3",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 4",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 5",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 6",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 7",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 8",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 9",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 10",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 11",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 12",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 13",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 14",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 15",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 16",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 17",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 18",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 19",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    },
+    {
+      "name": "Phần 20",
+      "source": "http://archive.org/download/Phan66_201903/Phan-01.mp3"
+    }
+  ],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "63ac840a04e60d8c10b116d9"
+  },
+  "author": "Saya Yuki",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/phong-luu-chan-tien.jpg",
+  "name": "Phong Lưu Chân Tiên",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac842c04e60d8c10b116da"
+  },
+  "author": "Tam Sinh Mộng",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/hu-lo.jpg",
+  "name": "Hư Lộ",
+  "chapterList": [],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "63ac844d04e60d8c10b116db"
+  },
+  "author": "Thần Khê Băng Phong",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/ta-dao-tu-tien-luc.jpg",
+  "name": "Tà Đạo Tu Tiên",
+  "chapterList": [],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "63ac84ae04e60d8c10b116dd"
+  },
+  "author": "Hồng Mông Thụ",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/tuyet-dinh-dan-ton.jpg",
+  "name": "Tuyệt Đỉnh Đan Tôn",
+  "chapterList": [],
+  "extra": "_tag1"
+},{
+  "_id": {
+    "$oid": "63ac84e604e60d8c10b116de"
+  },
+  "author": "Nguyệt Hạ Tiểu Dương",
+  "introduction": "Thể loại: Biến thân, xuyên qua, tiên hiệp, hài",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/tai-ha-khong-phai-la-nu.jpg",
+  "name": "Tại Hạ Không Phải Là Nữ",
+  "chapterList": [],
+  "extra": "_tag2"
+},{
+  "_id": {
+    "$oid": "63ac859f04e60d8c10b116e0"
+  },
+  "author": "Ý Tại Ngôn Ngoại",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/nghich-than-ky.jpg",
+  "name": "Nghịch Thần Ký",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac85bd04e60d8c10b116e1"
+  },
+  "author": "Lời Phi Lộ",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/tien-so.jpg",
+  "name": "Tiên Sở",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac85df04e60d8c10b116e2"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/tuyet-the-kiem-than-150x225.jpg",
+  "name": "Tuyệt Thế Kiếm Thần",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac85f004e60d8c10b116e3"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/01/ba-y-thien-ha-150x225.jpg",
+  "name": "Bá Y Thiên Hạ",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac860704e60d8c10b116e4"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/03/nap-thiep-ky-1-150x225.jpg",
+  "name": "Nạp Thiếp Ký",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac863c04e60d8c10b116e5"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/02/chua-te-vu-tru-150x225.jpg",
+  "name": "Chúa Tể Vũ Trụ",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac865804e60d8c10b116e6"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/01/kiem-dong-cuu-thien-150x225.jpg",
+  "name": "Kiếm Động Cửu Thiên",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac866904e60d8c10b116e7"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/01/ngao-kiem-lang-van-150x225.jpg",
+  "name": "Ngạo Kiếm Lăng Vân",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac868804e60d8c10b116e8"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2019/01/tao-than-150x225.jpg",
+  "name": "Tạo Thần",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac869b04e60d8c10b116e9"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/du-do-tieu-ho-ly-150x225.jpg",
+  "name": "Dụ Dỗ Tiểu Hồ Ly",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac86af04e60d8c10b116ea"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/tao-hoa-chi-mon-150x225.jpg",
+  "name": "Tạo Hóa Chi Môn",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac86be04e60d8c10b116eb"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/chi-ton-vo-lai-150x225.jpg",
+  "name": "Chí Tôn Vô Hại",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac86cb04e60d8c10b116ec"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/chan-tien-150x225.jpg",
+  "name": "Chân Tiên",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac86db04e60d8c10b116ed"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/dan-than-150x225.jpg",
+  "name": "Đan Thần",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac86ed04e60d8c10b116ee"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/thien-than-150x225.jpg",
+  "name": "Thiên Thần",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac870104e60d8c10b116ef"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/vo-tan-than-cong-150x225.jpg",
+  "name": "Vô Tận Thần Công",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac871c04e60d8c10b116f0"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/tu-chan-gia-tai-dau-pha-thuong-khung-150x225.jpg",
+  "name": "Tu Chân Giả",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac873204e60d8c10b116f1"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/toi-cuong-y-thanh-150x225.jpg",
+  "name": "Tối Cường Y Thánh",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac874304e60d8c10b116f2"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/tien-lo-phong-luu-150x225.jpg",
+  "name": "Tiên Lộ Phong Lưu",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac875904e60d8c10b116f3"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/cuu_dinh_ky-150x225.jpg",
+  "name": "Cửu Đỉnh Ký",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac876a04e60d8c10b116f4"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/dau-y-150x225.jpg",
+  "name": "Đấu Y",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac877b04e60d8c10b116f5"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/thon-thien-150x225.jpg",
+  "name": "Thôn Thiên",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac878604e60d8c10b116f6"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/trong-tu-thuc-khach-150x225.jpg",
+  "name": "Trọng Tử",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac879204e60d8c10b116f7"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/linh-la-gioi-150x225.jpg",
+  "name": "Linh La Giới",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac87a404e60d8c10b116f8"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/tiennguc-150x225.jpg",
+  "name": "Tiên Ngục",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac87b604e60d8c10b116f9"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/hua-tien-chi-150x225.jpg",
+  "name": "Hứa Tiên Chí",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac87c604e60d8c10b116fa"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/12/thanh-vuong-150x225.jpg",
+  "name": "Thánh Vương",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac87d804e60d8c10b116fb"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/11/vo-tan-kiem-trang-150x225.jpg",
+  "name": "Vô Tận Kiếm Trang",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac87e804e60d8c10b116fc"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/11/nhat-the-chi-ton-1-150x225.jpg",
+  "name": "Nhất Thế Chí Tôn",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac87fe04e60d8c10b116fd"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/11/tien-luyen-chi-lo-150x225.jpg",
+  "name": "Tiên Luyện Chi Lộ",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac881f04e60d8c10b116fe"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/11/quang-chi-tu-150x225.jpg",
+  "name": "Quang Chi Tử",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac882d04e60d8c10b116ff"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/11/luc-tien-150x225.jpg",
+  "name": "Lục Tiên",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac884304e60d8c10b11700"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/10/muc-than-ky-150x225.jpg",
+  "name": "Mục Thần Ký",
+  "chapterList": []
+},{
+  "_id": {
+    "$oid": "63ac885804e60d8c10b11701"
+  },
+  "author": "Sưu Tầm",
+  "introduction": "",
+  "imageUrl": "https://truyenaudiomoi.com/wp-content/uploads/2018/09/vuthanthienha-150x225.jpg",
+  "name": "Vũ Thần Thiên Hạ",
+  "chapterList": [
+    {
+      "name": "Phần 1",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 2",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 3",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 4",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 5",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 6",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 7",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 8",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    },
+    {
+      "name": "Phần 10",
+      "source": "http://archive.org/download/TruyenAudioMoi-TCTG/Tu-Chan-The-Gioi-01.mp3"
+    }
+  ]
+}]

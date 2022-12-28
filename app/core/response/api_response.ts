@@ -8,5 +8,5 @@ interface ApiResponse {
 }
 
 interface MetaResponse {
-    error: Error | null;
+    error: string | null;
 }
